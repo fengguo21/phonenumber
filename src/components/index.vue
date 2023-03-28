@@ -292,7 +292,7 @@ body {
     .handle {
       padding-right: 30px;
       height: 100px;
-      width: 100%;
+      width: calc(100%-30px);
       display: flex;
       justify-content: flex-end;
       align-items: center;

@@ -1,9 +1,13 @@
 <template>
   <div>
     <div class='container'>
-      <img
+      <!-- <img
         src="https://s1-imfile.feishucdn.com/static-resource/v1/v2_b33e03ba-ba9c-4ab9-933c-d6c51450bb9g~?image_size=noop&amp;cut_type=&amp;quality=&amp;format=image&amp;sticker_format=.webp"
-        alt="banner">
+        alt="banner"> -->
+      <div class='title'>
+        <p>手机号管理</p>
+      </div>
+
 
       <div class="phonecontainer">
         <div v-for='(item, index) in phoneList' :key='item.id' class='phoneitem' @click='selectPhone(item, index)'
@@ -193,41 +197,63 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='less' >
+.el-message-box {
+  width: auto;
+}
+
 html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: rgba(51, 112, 255, .1);
-  min-height: 100%;
+  // margin: 0;
+  // padding: 0;
+  // width: 100%;
+  // background-color: rgba(51, 112, 255, .1);
+  // min-height: 100%;
   // padding-bottom: 20px;
 }
 
 #app {
 
 
-  position: relative;
-  padding: 0;
-  width: 100%;
-  font-family: Avenir,
-    Helvetica,
-    Arial,
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0 auto;
-  display: flex;
-  // justify-content: center;
-  background-color: #fff;
-  box-shadow: 0 6px 24px 0 rgb(31 35 41 / 8%);
-  border-radius: 12px;
-  min-height: 100%;
+  // position: relative;
+  // padding: 0;
+  // width: 100%;
+  // font-family: Avenir,
+  //   Helvetica,
+  //   Arial,
+  //   sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // text-align: center;
+  // color: #2c3e50;
+  // margin: 0 auto;
+  // display: flex;
+  // // justify-content: center;
+  // background-color: #fff;
+  // box-shadow: 0 6px 24px 0 rgb(31 35 41 / 8%);
+  // border-radius: 12px;
+  // min-height: 100%;
   // margin-bottom: 20px;
 
   .container {
+
+
+    .title {
+      p {
+        margin-left: 20px;
+      }
+
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: left;
+      width: 100%;
+      line-height: 1.5;
+
+    }
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -245,7 +271,7 @@ body {
     .handle {
       padding-right: 30px;
       height: 100px;
-      width: 100%;
+      width: calc(100%-30px);
       display: flex;
       justify-content: flex-end;
       align-items: center;
