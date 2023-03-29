@@ -14,7 +14,7 @@
           :class="{ 'opened': item.isfOpen === 1, 'seleted': item.selected }"
           v-show='index < page * 100 && index > (page - 1) * 100 - 1'>
           <p>{{ item.phone }}</p>
-          <p class='name'>姓名:{{ item.name }}</p>
+          <p class='name'>姓名:{{ item.name || '保密' }}</p>
           <p class='status' :class="{ 'openedstatus': item.isfOpen === 1 }">状态:{{ item.isfOpen === 0 ? '未开通' : '已开通' }}
           </p>
         </div>
@@ -120,9 +120,7 @@ export default {
       if ( this.seleted.length ) {
         this.$confirm( `确定开通这${ this.seleted.length }个号码吗？` )
           .then( () => {
-            let data = this.seleted.map( item => {
-              return Object.assign( item, { gwmCode: this.form.jobNum, name: this.form.name } )
-            } )
+            let data = this.seleted
 
             console.log( data, 'data======' )
             request( {

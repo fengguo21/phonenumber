@@ -2,7 +2,10 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 
 
-const baseURL = 'http://10.49.20.11:9020/api/gwm/' //'https://m-apply-test.beanapi.com/api/gwm/'
+// const baseURL = 'http://10.49.20.11:9020/api/gwm/'  // 测试环境
+
+const baseURL = 'https://m-apply-test.beanapi.com/api/gwm/' // 生产环境
+
 
 // create an axios instance
 const service = axios.create( {

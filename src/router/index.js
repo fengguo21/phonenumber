@@ -32,12 +32,19 @@ Vue.use( Router )
  */
 export const constantRoutes = [
   {
-    path: '/index',
+    path: '/login',
+    name: 'login',
+    component: () => import( '@/components/login/index' ),
+  },
+  {
+    path: '/',
+    name: 'index',
     component: () => import( '@/components/index.vue' ),
   },
 
   {
     path: '/admin',
+    name: 'admin',
     component: () => import( '@/components/admin.vue' ),
   },
 
@@ -51,6 +58,18 @@ const createRouter = () => new Router( {
 } )
 
 const router = createRouter()
+
+router.beforeEach( ( to, from, next ) => {
+  // ...
+  // 返回 false 以取消导航
+  if ( to.name === 'admin' && !sessionStorage.getItem( 'hasLogin' ) ) {
+    next( { name: 'login' } )
+  } else {
+    next()
+  }
+  console.log( to, from, 'tourter' )
+  return true
+} )
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
